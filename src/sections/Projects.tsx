@@ -5,7 +5,6 @@ import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
-import grainImage from "@/assets/images/grain.jpg";
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -50,12 +49,82 @@ const portfolioProjects = [
   },
 ];
 
+type Project = (typeof portfolioProjects)[0];
+
+const ProjectCard = ({
+  project,
+  projectIndex,
+  totalProjects,
+  scrollYProgress,
+}: {
+  project: Project;
+  projectIndex: number;
+  totalProjects: number;
+  scrollYProgress: any;
+}) => {
+  const targetScale = 1 - (totalProjects - projectIndex) * 0.05;
+
+  const scale = useTransform(
+    scrollYProgress,
+    [projectIndex * 0.25, 1],
+    [1, targetScale]
+  );
+
+  return (
+    <motion.div
+      style={{ scale, top: `calc(64px + ${projectIndex * 40}px)` }}
+      className="sticky top-16"
+    >
+      <Card className="pt-8 px-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 ">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-16">
+          <div className="lg:pb-16">
+            <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex font-bold tracking-widest uppercase gap-2 text-sm bg-clip-text text-transparent">
+              <span>{project.company}</span>
+              <span>&bull;</span>
+              <span>{project.year}</span>
+            </div>
+
+            <h3 className="font-serif text-2xl mt-2 md:text-4xl md:mt-5">
+              {project.title}
+            </h3>
+            <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+            <ul className="flex flex-col gap-4 mt-4 md:mt-5">
+              {project.results.map((result) => (
+                <li
+                  key={result.title}
+                  className="flex gap-2 text-sm text-white/50 md:text-base"
+                >
+                  <CheckCircleIcon className="size-5 md:size-6" />
+                  <span>{result.title}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={project.link}>
+              <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 md:w-auto md:px-6">
+                <span>View Live Site</span> <ArrowUpRight />
+              </button>
+            </a>
+          </div>
+          <div className="relative">
+            <Image
+              src={project.image}
+              alt={project.title}
+              className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+            />
+          </div>
+        </div>
+      </Card>
+    </motion.div>
+  );
+};
+
 export const ProjectsSection = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
+
   return (
     <section className="pb-16 lg:py-24">
       <div className="container">
@@ -66,67 +135,15 @@ export const ProjectsSection = () => {
         />
 
         <div className="mt-10 flex flex-col gap-20 md:mt-20" ref={container}>
-          {portfolioProjects.map((project, projectIndex) => {
-            const targetScale =
-              1 - (portfolioProjects.length - projectIndex) * 0.05;
-
-            const scale = useTransform(
-              scrollYProgress,
-              [projectIndex * 0.25, 1],
-              [1, targetScale]
-            );
-            return (
-              <motion.div
-                style={{ scale, top: `calc(64px + ${projectIndex * 40}px)` }}
-                key={project.title}
-                className="sticky top-16"
-              >
-                <Card
-                  className=" pt-8 px-8 pb-0 md:pt-12 md:px-10
-             lg:pt-16 lg:px-20 "
-                >
-                  <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-                    <div className="lg:pb-16">
-                      <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex font-bold tracking-widest uppercase gap-2 text-sm bg-clip-text text-transparent">
-                        <span>{project.company}</span>
-                        <span className="">&bull;</span>
-                        <span>{project.year}</span>
-                      </div>
-
-                      <h3 className="font-serif text-2xl mt-2 md:text-4xl md:mt-5">
-                        {project.title}
-                      </h3>
-                      <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
-                      <ul className="flex flex-col gap-4 mt-4 md:mt-5">
-                        {project.results.map((result) => (
-                          <li
-                            key={result.title}
-                            className="flex gap-2 text-sm text-white/50 md:text-base"
-                          >
-                            <CheckCircleIcon className="size-5  md:size-6" />
-                            <span className="">{result.title}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <a href={project.link}>
-                        <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 md:w-auto md:px-6">
-                          <span>View Live Site</span> <ArrowUpRight />
-                        </button>
-                      </a>
-                    </div>
-                    <div className="relative">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
-                        // className="absolute inset-0 -z-10 opacity-10 "
-                      />
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            );
-          })}
+          {portfolioProjects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              projectIndex={index}
+              totalProjects={portfolioProjects.length}
+              scrollYProgress={scrollYProgress}
+            />
+          ))}
         </div>
       </div>
     </section>
