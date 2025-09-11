@@ -1,5 +1,5 @@
 import React from "react";
-
+import GradientText from "@/components/GradientText";
 function SectionHeader({
   title,
   eyebrow,
@@ -12,9 +12,16 @@ function SectionHeader({
   return (
     <>
       <div className="flex justify-center">
-        <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400  bg-clip-text text-transparent">
+        {/* <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400  bg-clip-text text-transparent"></p> */}
+
+        <GradientText
+          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+          animationSpeed={6}
+          showBorder={false}
+          className="custom-class uppercase font-semibold tracking-widest "
+        >
           {eyebrow}
-        </p>
+        </GradientText>
       </div>
       <h2 className="font-serif text-3xl text-center mt-6 md:text-5xl">
         {title}
