@@ -1,7 +1,9 @@
 "use client";
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import sonic from "@/assets/images/sonic.png";
+import brainwave from "@/assets/images/brainwave.png";
+import hilink from "@/assets/images/hilink.png";
+
+import ragenzi from "@/assets/images/ragenzi.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
@@ -12,40 +14,52 @@ import { useRef } from "react";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "Sonic Tech",
+    year: "2025",
+    title: "Sonic Tech Landing Page",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "#",
-    image: darkSaasLandingPage,
+    link: "https://sonic-sundrive.vercel.app",
+    image: sonic,
   },
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "Brain wave",
+    year: "2024",
+    title: "Brainwave AI Website",
     results: [
       { title: "Boosted sales by 20%" },
       { title: "Expanded customer reach by 35%" },
       { title: "Increased brand awareness by 15%" },
     ],
-    link: "#",
-    image: lightSaasLandingPage,
+    link: "https://brainwave-nu-tawny.vercel.app",
+    image: brainwave,
   },
   {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
+    company: "Ragenzi",
+    year: "2025",
+    title: "Ragenzi Marketing Website",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "#",
-    image: aiStartupLandingPage,
+    link: "https://agenzi.vercel.app/",
+    image: ragenzi,
+  },
+  {
+    company: "Hilink",
+    year: "2025",
+    title: "Hilink Camping Website",
+    results: [
+      { title: "Enhanced user experience by 40%" },
+      { title: "Improved site speed by 50%" },
+      { title: "Increased mobile traffic by 35%" },
+    ],
+    link: "https://camp-1vyi.vercel.app/",
+    image: hilink,
   },
 ];
 
@@ -74,6 +88,7 @@ const ProjectCard = ({
     <motion.div
       style={{ scale, top: `calc(64px + ${projectIndex * 40}px)` }}
       className="sticky top-16"
+      id="projects"
     >
       <Card className="pt-8 px-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 ">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16">

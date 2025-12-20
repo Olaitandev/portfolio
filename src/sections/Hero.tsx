@@ -9,7 +9,7 @@ import SparkleIcon from "@/assets/icons/sparkle.svg";
 
 export const HeroSection = () => {
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip ">
+    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip " >
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
@@ -121,7 +121,7 @@ export const HeroSection = () => {
 
         <div className="max-w-lg mx-auto">
           <h1 className="font-serif text-3xl text-center mt-8 tracking-wide md:text-5xl ">
-            Hi, I&apos;m Michael. <br /> A Mobile Developer.
+            Hi, I&apos;m Michael. <br /> A Frontend Developer.
           </h1>
 
           <p className="mt-4 text-center text-white/60 md:text-lg">
