@@ -23,10 +23,13 @@ export const ContactSection = () => {
               </p>
             </div>
             <div>
-              <button className="inline-flex items-center h-12 gap-2 px-6 text-white bg-gray-900 border border-gray-900 rounded-xl text-nowrap">
+              <a 
+                href="mailto:olaitan.dev@gmail.com"
+                className="inline-flex items-center h-12 gap-2 px-6 text-white bg-gray-900 border border-gray-900 rounded-xl text-nowrap"
+              >
                 <span className="font-semibold">Get in Touch</span>
                 <ArrowUpRightIcon className="size-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
