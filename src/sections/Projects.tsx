@@ -88,7 +88,6 @@ const ProjectCard = ({
     <motion.div
       style={{ scale, top: `calc(64px + ${projectIndex * 40}px)` }}
       className="sticky top-16"
-      id="projects"
     >
       <Card className="pt-8 px-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 ">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16">
@@ -141,7 +140,7 @@ export const ProjectsSection = () => {
   });
 
   return (
-    <section className="pb-16 lg:py-24">
+    <section className="pb-16 lg:py-24" id="projects">
       <div className="container">
         <SectionHeader
           title="Featured Projects"

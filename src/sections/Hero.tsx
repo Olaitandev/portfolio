@@ -8,6 +8,13 @@ import HeroOrbit from "@/components/HeroOrbit";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 
 export const HeroSection = () => {
+  const handleScrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative z-0 py-32 md:py-48 lg:py-60 overflow-x-clip " >
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
@@ -130,14 +137,20 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center gap-4 mt-8 md:flex-row">
-          <a href="#projects" className="inline-flex items-center h-12 gap-2 px-6 border border-white/15 rounded-xl">
+          <button 
+            onClick={() => handleScrollTo('projects')}
+            className="inline-flex items-center h-12 gap-2 px-6 border border-white/15 rounded-xl"
+          >
             <span className="font-semibold">Explore My Work</span>
             <ArrowDown className="size-4" />
-          </a>
-          <a href="#contact" className="inline-flex items-center h-12 gap-2 px-6 text-gray-900 bg-white border border-white rounded-xl ">
+          </button>
+          <button 
+            onClick={() => handleScrollTo('contact')}
+            className="inline-flex items-center h-12 gap-2 px-6 text-gray-900 bg-white border border-white rounded-xl "
+          >
             <span>👋</span>
             <span className="">Lets Connect</span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
