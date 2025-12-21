@@ -22,7 +22,7 @@ const footerLinks = [
 export const Footer = () => {
   return (
     <footer className="relative overflow-x-clip">
-      <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10"></div>
+      {/* <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10"></div> */}
       <div className="container relative z-10">
         <div className="flex flex-col items-center gap-8 py-6 text-sm border-t md:justify-between md:flex-row border-white/15">
           {/* get the current year */}

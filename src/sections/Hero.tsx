@@ -6,6 +6,8 @@ import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import HeroOrbit from "@/components/HeroOrbit";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
+import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   const handleScrollTo = (id: string) => {
@@ -16,7 +18,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <div className="relative z-0 py-32 md:py-48 lg:py-60 overflow-x-clip " >
+    <div className="relative z-0 py-32 md:py-48 lg:py-60 overflow-x-clip ">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
@@ -128,30 +130,41 @@ export const HeroSection = () => {
 
         <div className="max-w-lg mx-auto">
           <h1 className="mt-8 font-serif text-3xl tracking-wide text-center md:text-5xl ">
-            Hi, I&apos;m Michael. <br /> A Frontend Developer.
+            Hi, I&apos;m Michael.
           </h1>
+          <motion.div className="relative flex flex-col items-center justify-center gap-4 mx-4 my-4 mt-4 text-center sm:mx-0 sm:mb-0 sm:flex-row">
+            <LayoutTextFlip
+              text=""
+              words={[
+                "Frontend Developer",
+                "Mobile Developer",
+                "Software Engineer",
+                "UI/UX Enthusiast",
+              ]}
+            />
+          </motion.div>
 
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            I specialize in transforming designs into user-friendly and visually
-            appealing interfaces for web and mobile applications.
+            I turn designs into fast, scalable, and user-friendly web & mobile
+            applications
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center gap-4 mt-8 md:flex-row">
-          <button 
-            onClick={() => handleScrollTo('projects')}
+        {/* <div className="flex flex-col items-center justify-center gap-4 mt-8 md:flex-row">
+          <button
+            onClick={() => handleScrollTo("projects")}
             className="inline-flex items-center h-12 gap-2 px-6 border border-white/15 rounded-xl"
           >
             <span className="font-semibold">Explore My Work</span>
             <ArrowDown className="size-4" />
           </button>
-          <button 
-            onClick={() => handleScrollTo('contact')}
+          <button
+            onClick={() => handleScrollTo("contact")}
             className="inline-flex items-center h-12 gap-2 px-6 text-gray-900 bg-white border border-white rounded-xl "
           >
             <span>👋</span>
             <span className="">Lets Connect</span>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
