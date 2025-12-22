@@ -145,8 +145,8 @@ export const HeroSection = () => {
           </motion.div>
 
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            I turn designs into fast, scalable, and user-friendly web & mobile
-            applications
+            I build fast, responsive ,high-performance web and mobile Apps that
+            help businesses grow.
           </p>
         </div>
         {/* <div className="flex flex-col items-center justify-center gap-4 mt-8 md:flex-row">
