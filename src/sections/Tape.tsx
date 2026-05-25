@@ -2,16 +2,20 @@ import StarIcon from "@/assets/icons/star.svg";
 import { Fragment } from "react";
 
 const words = [
-  "High Performance",
-  "Accessible by Design",
-  "Scalable Architecture",
-  "Pixel-Perfect UI",
-  "User-Centric",
-  "Responsive Layouts",
-  "Secure & Reliable",
-  "Maintainable Code",
-  "SEO-Optimized",
-  "Interactive Experiences",
+  "Responsive",
+  "Built to Scale",
+  "Clean Code",
+  "Fast by Default",
+  "No Bloat",
+  "Ships on Time",
+  "Type-Safe",
+  "Obsessed with Performance",
+  "Readable Code",
+  "Mobile First",
+  "Dark Mode Ready",
+  "Delightful UX",
+  "Fast",
+  "Accessible",
 ];
 
 export const TapeSection = () => {
